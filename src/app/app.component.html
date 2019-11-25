@@ -8,7 +8,6 @@
 	
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
-	<script type="text/css" src="homeCss.css"></script>
   <title>Document</title>
  </head>
  <body class="bg">
@@ -16,14 +15,20 @@
     <div class="container-fluid">
       <div class="navbar-header">
           <div class="site-logo">
-              <img src="../assets/images/download.png" alt="">
+              <img src="../assets/images/d1.png" alt="">
           </div>
         <a class="navbar-brand" href="#" style="font-family: 'Raleway', sans-serif;color: white;font-weight: 600;font-size: 35px;">EduStage</a>
       </div>
       <ul class="nav navbar-nav">
-        <li><a routerLink =''>Home</a></li>
-        <li><a routerLink='/login'>Sign In</a></li>
-        <li><a routerLink='/signUp'>Sign Up</a></li>
+        <li ><a routerLink =''>Home</a></li>
+        <li><a *ngIf="!isLogin()" routerLink='/login' >Sign In</a></li>
+        <li><a *ngIf="!isLogin()" routerLink='/signUp' >Sign Up</a></li>
+        <li ><a *ngIf="isMentor()!=3 && isLogin()" style="cursor: pointer;" routerLink="/utCurrent">Current Trainings</a></li>
+        <li><a *ngIf="isMentor()!=3 && isLogin()" style="cursor: pointer;" routerLink="utCompleted" >Completed Trainings</a></li>
+        <li><a *ngIf="isMentor()!=3 && isLogin()" style="cursor: pointer;" >Notifications</a></li>
+
+        <li><a *ngIf="isMentor()==1 && isLogin()" style="cursor: pointer" routerLink="EditSkills">Edit Skills</a></li>
+        <li><a *ngIf="isLogin()" style="cursor: pointer" (click)="logoutUser()" style="cursor: pointer;">Logout</a></li>
       </ul>
     </div>
   </nav>

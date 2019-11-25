@@ -1,5 +1,5 @@
 .bg{
-	background-image: url('../assets/images/bg.jpg');
+	background: url('../assets/images/bg.jpg');
     background-repeat: no-repeat;
 	background-size:cover;
     height: 890px;
@@ -34,11 +34,11 @@ position: relative;
     float: right;
     margin: 0px;
     position: relative;
-    right: 100px;
+    right: 80px;
     top:-5px
 }
 .navbar-default {
-    background-color: rgba(0,0,0,.0001);
+    background-color: rgba(0,0,0,.3);
     border-color: rgba(0,0,0,.0001);
     border-radius: 0px;
     top: 50px;

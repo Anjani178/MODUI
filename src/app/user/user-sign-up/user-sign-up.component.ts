@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import {UserService} from '../../user.service';
 import { ActivatedRoute } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MustMatch } from '../../must-match.validator';
 import { Router } from '@angular/router';
+import { UserObj } from 'src/app/models/user-obj';
+import { UserService } from 'src/app/Service/user.service';
 
 
 @Component({
@@ -12,42 +13,51 @@ import { Router } from '@angular/router';
   styleUrls: ['./user-sign-up.component.css']
 })
 export class UserSignUpComponent implements OnInit {
-  email;
-  password;
-  cpassword;
-  mv;
-  registerForm: FormGroup;
-    submitted = false;
-  constructor(private mvservice:UserService,private formBuilder: FormBuilder,private route:Router) {   }
-  //   sub(){
-  //   this.mv=this.mvservice.mvserv1(this.email,this.password);
-  //  }
-  // ngOnInit() {
-  // }
-    ngOnInit() {
-        this.registerForm = this.formBuilder.group({
-            email: ['', [Validators.required, Validators.email]],
-            password: ['', [Validators.required, Validators.minLength(6)]],
-            cpassword:['',Validators.required],
-        }, {
-            validator: MustMatch('password', 'cpassword')
-        });
-    }
-
-    // convenience getter for easy access to form fields
-    get f() { return this.registerForm.controls; }
-
-    onSubmit() {
-        this.submitted = true;
-
-        // // stop here if form is invalid
-        if (this.registerForm.invalid) {
-            return;
+  item:UserObj
+  list:UserObj[];
+  msg:any;
+  usignUp: FormGroup;
+  submitted = false;
+  cPassword;
+  constructor(private formBuilder: FormBuilder,private service:UserService,private router:Router) { 
+    this.item = new UserObj();
+  }
+  ngOnInit() {
+            this.usignUp = this.formBuilder.group({
+                uEmail: ['', [Validators.required, Validators.email]],
+                uPassword: ['', [Validators.required, Validators.maxLength(5)]],
+                cPassword:['',[Validators.required]],
+                contact:['',[Validators.required,Validators.maxLength(10)]],
+            }, {
+                validator: MustMatch('uPassword', 'cPassword')
+            });
         }
-        this.mv=this.mvservice.mvserv1(this.email,this.password);
-        this.email="";
-        this.password="";
-        this.cpassword=null;
+    
+        // convenience getter for easy access to form fields
+        get f() { return this.usignUp.controls; }
+    
+        onSubmit() {
+            this.submitted = true;
+    
+            // // stop here if form is invalid
+            if (this.usignUp.invalid) {
+              this.item.uEmail="";
+              this.item.uPassword="";
+              this.cPassword=null;
+              this.item.contact="";
+                return;
+            }
+            else{
+              this.service.Add(this.item).subscribe(k=>this.msg=k);
+              alert('Successfull Register!!\n\n');
+              this.router.navigate(['/login']);
+            }
+              this.item.uEmail="";
+              this.item.uPassword="";
+              this.cPassword=null;
+              this.item.contact="";
+        }
     }
-}
 
+
+  

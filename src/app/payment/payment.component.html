@@ -1,0 +1,53 @@
+<div id="template" class="row panel-wrapper"  style="position: relative;
+                left: 410px;
+                top: 80px;
+                width: 500px;">
+                    <div class="col-12 panel-header basket-header" style="border-radius: 0px;
+                    /* width: 0pc; */
+                    height: 69px;" >
+                        <div class="row">
+                            <div class="col-6 basket-title" style="position: relative;
+                            top: 7px;">
+                                <span class="emphasized">Booking Summary</span>
+                            </div>
+                            <div class="col-6 order-number align-right" style="color: white;
+                            position: relative;
+                            bottom: 26px;
+                            right: 15px;">
+                                <span class="description">Training ID #</span><br><span class="emphasized">{{trI.tId}}</span>
+                            </div>
+                        </div>                                 
+                    </div>
+                    <div class="col-12 panel-body basket-body" style="background: rgba(0, 0, 0, 0.5); color: white;">
+                        <div class="row product">
+                            <div class="col-2 product-image"><img src="../../assets/images/user.jpg"></div>
+                            <div class="col-5" style="position: relative;left: 180px;"><p style="font-size: 20px;">{{men.mUserName}}</p></div>
+                        </div>
+                        <div class="row product" style="border-bottom: 0px;">
+                            <div class="col-5"><span class="additional" style="font-size: 14px;  font-family: 'Montserrat', sans-serif;">Contact : {{men.contact}}</span></div>
+                            <div class="col-5"><span class="sub" style="font-size: 14px; color: white; font-weight: 300;position: relative;top: 15px; font-family: 'Montserrat', sans-serif;"> Time Duration : {{trI.timeDuration}} Days</span></div><br>
+                            <div class="col-2 align-right"><span class="sub" style="font-size: 14px;color: white; font-weight: 300;    position: relative;  font-family: 'Montserrat', sans-serif;
+                                bottom: 62px;">Technology : {{men.technologies}}</span> </div><br>
+                            <div class="col-3 align-right"><span class="sub" style="font-size: 14px;color: white; font-weight: 300;    position: relative;  font-family: 'Montserrat', sans-serif;
+                                bottom: 63px;"> Facilities :{{men.facilities}}</span></div><br>
+                        </div>
+                    </div>
+                    <div class="col-12 panel-footer basket-footer" style="border-radius: 0px;
+                    height: 92px;
+                    position: relative;
+                    bottom: 92px;">
+                        <hr>
+                        <div class="row">
+                            <div class="col-8 align-right description"><div class="dive">Total</div></div>
+                            <div class="col-4 align-right"><span class="very emphasized">{{fees}}</span></div>
+                        </div>
+                        <hr>
+                    </div>
+                    <div class="col-12 panel-footer creditcard-footer" style="border-radius: 0px; height: 2px;background: rgba(0, 0, 0, 0.5);    position: relative;
+                    bottom: 94px;">
+                        <div class="row">
+                            <div class="col-12 align-right" style="position: relative;
+                            bottom: 63px;"><button class="cancel" (click)="cancel()">Cancel</button>&nbsp;<button class="confirm"(click)="Training();payment()">Confirm & Pay</button></div>
+                        </div>
+                    </div>
+                </div>

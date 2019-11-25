@@ -1,0 +1,82 @@
+<section class="listings" style="position: relative;
+top: 50px; margin: 0;
+    padding: 0;
+    font-family: 'Montserrat', sans-serif;
+    letter-spacing: 1px;
+    color: #fff">
+    <div class="container">
+            <div class="col-md-9" style="background: rgba(0, 0, 0, 0.5);
+            /* height: 800px; */
+            width: 1152px;
+            position: relative;
+            right: 25px;">
+                <div class="row">
+                    <div class="col-md-12">
+                        <h2 style="font-weight:600;"> Results</h2>
+                        <br>
+                    </div>
+                </div>
+                <div class="row mb-3" *ngFor="let item of list ; let i=index">
+                    <div class="col-md-12">
+                        <div class="card" style="    position: relative;
+                        left: 60px;">
+                            <div class="card-body">
+                                <div class="row">
+                                  <div class="col-md-2">
+                                      <img style="block-size: 120px;" src="../../assets/images/user.jpg">
+                                  </div>
+                                  <div class="col-md-6  card-body">
+                                      <div class="list-title" >
+                                          <ul class="list-inline list-unstyled">
+                                          <li class="list-inline-item"><a  style="color: #fff; text-decoration:none;font-weight: 800" ><h4 style="font-weight:bold">{{item.mUserName}}</h4></a></li>
+
+                                      </ul>
+                                    </div>
+                                      <div class="list-descrip">
+                                        <small>Trainer is specialized in {{item.technologies}} with {{item.yearOfExperience}} years of experience. The teaching timings would be from {{item.timeSlot}}.The student would be provided with {{item.facilities}}</small>  
+                                      </div>
+                                      <div class="list-location" style="padding-top: 10px; float: left;">
+                                        <a  style="color: #fff; text-decoration:none;font-size: 12px" ><i class="fa fa-envelope"></i><small> Email: {{item.mEmail}}</small> </a>
+                                    </div>
+                                      <div class="list-location" style="padding-top: 10px; float: right;">
+                                        <a  style="color: #fff; text-decoration:none;font-size: 12px" ><i class="fa fa-link"></i><small> Social Media url:<a style="color:#53abec">{{item.linkedinUrl}}</a></small> </a>
+                                    </div>
+                                      <div class="list-location" style="padding-top: 10px; float: right; margin-right: 5px">
+                                          <a  style="color: #fff; text-decoration:none;font-size: 12px" ><i class="fa fa-mobile"></i><small> Ph no: {{item.contact}}</small> </a>
+                                      </div>
+                                      
+                                      
+                                      
+                                  </div>
+                                  <div class="col-md-3 border-left card-body" style="position: relative;
+                                  left: 30px;">
+                                      <ul class="list-unstyled" style="    position: relative;
+                                      top: 30px;">
+                                          <li class="text-secondary"><small style="font-size: 13px;">Fees:{{list1[i]}} </small></li>
+                                      </ul>
+                                      <br>
+                                      <br>
+                                      <br>
+                                      <button type="button" class="btn btn-outline-primary" (click)="book(item.mid,item.technologies,skillId[i],dur[i],item,list1[i])">Book Now</button>
+                                  </div>
+                              </div>
+                            </div>
+                        </div>
+                        <hr style="position: relative;
+                        right: 21px; max-width: 95%;">
+                    </div>
+                    
+                </div>
+                <div class="row mb-3">
+                    <div class="col-md-12">
+                         <small style="font-size: 10px;">  {{count}} results found </small>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <br>
+                    </div>
+                </div>
+            </div>
+        </div>
+</section>

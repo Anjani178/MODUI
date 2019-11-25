@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { MentorService } from 'src/app/mentor.service';
-import { ActivatedRoute } from '@angular/router';
+import { MentorService } from 'src/app/Service/mentor.service';
+import { ActivatedRoute, Router } from '@angular/router';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { MustMatch } from 'src/app/must-match.validator';
+import { MentorObj } from 'src/app/models/mentor-obj';
 
 @Component({
   selector: 'app-mentor-sign-up',
@@ -10,57 +11,69 @@ import { MustMatch } from 'src/app/must-match.validator';
   styleUrls: ['./mentor-sign-up.component.css']
 })
 export class MentorSignUpComponent implements OnInit {
-  email;
-  password;
-  technologies;
-  facilities;
-  experience;
-  timeStart;
-  timeEnd;
-  url;
-  number;
-  cpassword;
-  m;
-  registerForm1: FormGroup;
-    submitted = false;
-  constructor(private mservice:MentorService, private route: ActivatedRoute, private formBuilder:FormBuilder) { }
+  item:MentorObj;
+  list:MentorObj[];
+  msg:any;
+  MregForm: FormGroup;
+  submitted = false;
+  re_password;
+  constructor(private mservice:MentorService, private route: Router, private formBuilder:FormBuilder) { 
+    this.item = new MentorObj();
+
+  }
   ngOnInit() {
-    this.registerForm1 = this.formBuilder.group({
-      email: ['', [Validators.required, Validators.email]],
-      technologies:['',Validators.required],
-      facilities:['',Validators.required],
-      experience:['',Validators.required],
-      timeStart:['',Validators.required],
-      timeEnd:['',Validators.required],
-      url:['',Validators.required],
-      number:['',Validators.required],
-      password: ['', [Validators.required, Validators.minLength(6)]],
-      cpassword:['',Validators.required],
-  }, {
-      validator: MustMatch('password', 'cpassword')
-  });
-}
+    this.MregForm = this.formBuilder.group({
+      mUserName: ['', [Validators.required, Validators.maxLength(15),Validators.pattern('^[a-zA-Z ]*$')]],
+       mEmail: ['', [Validators.required, Validators.email]],
+       mPassword: ['', [Validators.required, Validators.minLength(4)]],
+       re_password: ['', Validators.required],
+       technologies: ['', Validators.required],
+       facilities: ['', Validators.required],
+       yearOfExperience: ['', Validators.required],
+       timeSlot: ['', Validators.required],
+       linkedinUrl: ['', Validators.required],
+       contact: ['', [Validators.required,Validators.pattern("^[0-9]*$"), Validators.minLength(10)]]
+     }, 
+     {
+         validator: MustMatch('mPassword', 're_password')
+     });
+ }
+ get f() { return this.MregForm.controls; }
 
-// convenience getter for easy access to form fields
-get f() { return this.registerForm1.controls; }
+ onSubmit() {
+   this.submitted = true;
 
-onSubmit() {
-  this.submitted = true;
+   // stop here if form is invalid
+   if (this.MregForm.invalid) {
+    this.item.contact="";
+    this.item.facilities="";
+    this.item.linkedinUrl="";
+    this.item.mEmail="";
+    this.item.mPassword="";
+    this.item.mUserName="";
+    this.item.technologies="";
+    this.item.timeSlot="";
+    this.item.yearOfExperience="";
+    this.re_password="";
+       return;
+   }
+   else{
+     this.mservice.Add(this.item).subscribe(k=>this.msg=k);
+     console.log(this.msg);
+    alert('SUCCESS!! :-)\n\n')
+    this.route.navigate(['/login']);
+//       this.route.navigate(['/login']);
+ }
+ this.item.contact="";
+ this.item.facilities="";
+ this.item.linkedinUrl="";
+ this.item.mEmail="";
+ this.item.mPassword="";
+ this.item.mUserName="";
+ this.item.technologies="";
+ this.item.timeSlot="";
+ this.item.yearOfExperience="";
+ this.re_password="";
 
-  // // stop here if form is invalid
-  if (this.registerForm1.invalid) {
-      return;
   }
-  this.m=this.mservice.mserv(this.email,this.technologies,this.facilities,this.experience,this.timeStart,this.timeEnd,this.url,this.number,this.password);
-  this.email="";
-  this.technologies="";
-  this.facilities="";
-  this.experience="";
-  this.timeStart="";
-  this.timeEnd="";
-  this.url="";
-  this.number="";
-  this.password="";
-  this.cpassword="";
 }
-  }

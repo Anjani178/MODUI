@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-import {HttpClientModule} from '@angular/common/http'
+import {HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/http'
 
 import { AppRoutingModule } from './app-routing.module';
 import {UserModule} from './user/user.module';
@@ -17,6 +17,13 @@ import { SignUpComponent } from './sign-up/sign-up.component';
 import { UserDashComponent } from './user-dash/user-dash.component';
 import { MentorDashComponent } from './mentor-dash/mentor-dash.component';
 import { SearchComponent } from './search/search.component';
+import { UtCompletedComponent } from './ut-completed/ut-completed.component';
+import { UtCurrentComponent } from './ut-current/ut-current.component';
+import { SresultsComponent } from './sresults/sresults.component';
+import { PaymentComponent } from './payment/payment.component';
+import { MtCompletedComponent } from './mt-completed/mt-completed.component';
+import { MtCurrentComponent } from './mt-current/mt-current.component';
+import { EditSkillsComponent } from './edit-skills/edit-skills.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +32,13 @@ import { SearchComponent } from './search/search.component';
     MentorSignUpComponent,
     UserDashComponent,
     SearchComponent,
+    UtCompletedComponent,
+    UtCurrentComponent,
+    SresultsComponent,
+    PaymentComponent,
+    MtCompletedComponent,
+    MtCurrentComponent,
+    EditSkillsComponent,
   ],
   imports: [
     BrowserModule,
@@ -40,7 +54,7 @@ import { SearchComponent } from './search/search.component';
   ],
   exports: [ FormsModule,
     ReactiveFormsModule],
-  providers: [],
+  providers: [LoginComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

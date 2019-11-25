@@ -1,4 +1,4 @@
-import { MentorObj } from './mentor-obj';
+import { MentorObj } from '../models/mentor-obj';
 
 describe('MentorObj', () => {
   it('should create an instance', () => {

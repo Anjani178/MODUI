@@ -1,0 +1,115 @@
+.icon-bar {
+    position: fixed;
+    top: 53%;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+  }
+  
+  .icon-bar a {
+    display: block;
+    text-align: center;
+    padding: 16px;
+    transition: all 0.3s ease;
+    color: white;
+    font-size: 20px;
+  }
+  .btn{
+    background: #53abec;
+    width: 100px;
+    margin-bottom: 10px;
+    height: 90px;
+  }
+  .btn:hover{
+    background: #5e8caa;
+    width: 100px;
+    margin-bottom: 10px;
+    height: 90px;
+    border: #5e8caa;
+  }
+  .btn::after{
+    background: #5e8caa;
+    width: 100px;
+    margin-bottom: 10px;
+    height: 90px;
+    border: #5e8caa;
+  }
+  .facebook {
+    background: #53abec;
+    color: white;
+  }
+  
+  .twitter {
+    background: #53abec;
+    color: white;
+  }
+  
+  .google {
+    background: #53abec;
+    color: white;
+  }
+  
+  .linkedin {
+    background: #53abec;
+    color: white;
+  }
+  
+  .youtube {
+    background: #53abec;
+    color: white;
+  }
+  
+  .content {
+    margin-left: 75px;
+    font-size: 30px;
+  }
+  .container {
+    position: relative;
+  
+}
+table {
+    width: 800px;
+    border-collapse: collapse;
+    overflow: hidden;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+table {
+    display: table;
+    border-collapse: separate;
+    border-spacing: 2px;
+    border-color: grey;
+}
+thead th {
+    background-color: #95A5A6;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    padding: 25px 30px;
+    margin-bottom: 25px;
+}
+th {
+    text-align: left;
+}
+th, td {
+    padding: 15px;
+    background-color: rgba(255, 255, 255, 0.2);
+    color: #fff;
+}
+th {
+    display: table-cell;
+    vertical-align: inherit;
+    font-weight: bold;
+    text-align: -internal-center;
+    font-size: 14px;
+    color:black;
+}
+tbody td {
+    position: relative;
+    font-size: 12px;
+    color:black;
+}
+th, td {
+    padding: 15px;
+    background-color:white;
+    
+}

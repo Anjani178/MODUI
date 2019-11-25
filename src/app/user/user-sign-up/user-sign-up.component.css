@@ -6,10 +6,10 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
     vertical-align: baseline;
 }
 .w3layouts-two-grids {
-    width: 85%;
+    width: 64%;
     position: relative;
     top: -125px;
-    left: 95px
+    left: 240px
 }
 .mid-class {
     display: -webkit-flex;

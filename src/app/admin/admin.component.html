@@ -1,0 +1,149 @@
+<div class="icon-bar">
+    <button (click)="User()" class="facebook" class="btn btn-primary">Users</button> 
+    <br>
+    <button (click)="Mentor()" class="twitter" class="btn btn-primary">Mentors</button> 
+    <br>
+    <button (click)="Skill()" class="btn btn-primary">Skills</button> 
+    <br>
+    <button (click)="Training()" class="btn btn-primary">Trainings</button>
+  </div>
+
+    <div *ngIf="check()==1" class="container"  style="left: 170px; top: 65px;">
+        <table>
+        <thead>
+        <tr>
+        <th>User Id</th>
+        <th>User Email</th>
+        <th>Contact</th>
+        <th>Active</th>
+        <th>Actions</th>
+        </tr>
+        </thead>
+        <tbody *ngFor="let u of list">
+        <tr>
+        <td>{{u.uid}}</td>
+        <td>{{u.uEmail}}</td>
+        <td>{{u.contact}}</td>
+        <td>{{u.active}}</td>
+        <td><button (click)="deleteUser(u.uid)"><span class="fa fa-trash"></span></button> &nbsp;<button (click)="blockU(u.uid)"><span class="fa fa-ban"></span>/<span class="fa fa-circle-o"></span></button></td>
+        </tr>
+        </tbody>
+        </table>
+        </div>
+    <div *ngIf="check()==2" class="container" style="left: 40px; top: 75px;">
+        <table>
+        <thead>
+        <tr>
+        <th>MId</th>
+        <th>Email</th>
+        <th>Name</th>
+        <th>Contact</th>
+        <th>Facilities</th>
+        <th>Skills</th>
+        <th>TimeSlot</th>
+        <th>Exp</th>
+        <th>Active</th>
+        <th>Actions</th>
+        </tr>
+        </thead>
+        <tbody *ngFor="let u of list1">
+        <tr>
+        <td>{{u.mid}}</td>
+        <td>{{u.mEmail}}</td>
+        <td>{{u.mUserName}}</td>
+        <td>{{u.contact}}</td>
+        <td>{{u.facilities}}</td>
+        <td>{{u.technologies}}</td>
+        <td>{{u.timeSlot}}</td>
+        <td>{{u.yearOfExperience}}</td>
+        <td>{{u.active}}</td>
+        <td><button (click)="deleteMentor(u.mid)"><span class="fa fa-trash"></span></button>&nbsp;<button (click)="blockM(u.mid)"><span class="fa fa-ban"></span>/<span class="fa fa-circle-o"></span></button></td>
+        </tr>
+      </tbody>
+        </table>
+        </div>
+    <div *ngIf="check()==3" class="container" style="left: 250px;
+    top: 70px;
+    width: 796px;
+    padding: 0px;
+    margin: 0px;">
+        <table >
+        <thead>
+        <tr>
+        <th>SId</th>
+        <th>Name</th>
+        <th>TOC</th>
+        <th>PreReq</th>
+        <th>Fees</th>
+        <th style="width:50px">Dur</th>
+        <th>Actions</th>
+        </tr>
+        </thead>
+        <tbody *ngFor="let u of list2">
+        <tr >
+        <td>{{u.sId}}</td>
+        <td>{{u.sName}}</td>
+        <td>{{u.toc}}</td>
+        <td>{{u.preReq}}</td>
+        <td>{{u.fees}}</td>
+        <td style="width:50px">{{u.duration}} Days</td>
+        <td><button (click)="DeleteSkill(u.sId)"><span class="fa fa-trash"></span></button> &nbsp;<button (click)="e(u.sId,u.sName,u.toc,u.preReq,u.fees,u.duration)">Edit</button></td>
+        </tr>
+        </tbody>
+        <tr *ngIf="checkE()==1">
+                <td><input value="{{sid}}" style="color: black;font-size:12px;width:50px"[(ngModel)]="s.sId"></td>
+                <td><input name= "sName" style="color: black;font-size:12px;"  [(ngModel)]="s.sName"></td>
+                <td><input name= "toc" style="color: black;font-size:12px;" [(ngModel)]="s.toc"></td>
+                <td><input name= "preReq" style="color: black;font-size:12px;" [(ngModel)]="s.preReq"></td>
+                <td><input type="number" name= "fees" style="color: black;font-size:12px;width:50px" [(ngModel)]="s.fees"></td>
+                <td><input name= "duration" style="color: black;font-size:12px;width:50px" [(ngModel)]="s.duration"></td>
+                <td><button style="color: black; font-size:12px;" (click)="saveSkill()">Save</button>&nbsp;<button style="color: black; font-size:12px;" (click)="cancel()">Cancel</button></td>
+        </tr>
+        <tr *ngIf="checkE()==2">
+            <td><input style="color: black;font-size:12px; width:50px" [(ngModel)]="items.sId" disabled></td>
+            <td><input name= "sName" style="color: black;font-size:12px;"  [(ngModel)]="items.sName"></td>
+            <td><input name= "toc" style="color: black;font-size:12px;" [(ngModel)]="items.toc"></td>
+            <td><input name= "preReq" style="color: black;font-size:12px;" [(ngModel)]="items.preReq"></td>
+            <td><input type="number" name= "fees" style="color: black;font-size:12px;width:50px" [(ngModel)]="items.fees"></td>
+            <td><input name= "duration" style="color: black;font-size:12px;width:50px" [(ngModel)]="items.duration"></td>
+            <td><button style="color: black; font-size:12px;" (click)="AddNew()">Add New</button></td>
+    </tr>
+    </table>
+        <button style="float: right; width: 100px;height: 50px;position: relative; top: 5px;" class="btn btn-primary"(click)="neu()"><span class="fa fa-plus"></span>Add</button>
+      </div>
+    <div  *ngIf="check()==4"class="container" class="container" style="left: 55px; top: 65px;">
+        <table>
+        <thead>
+        <tr>
+        <th>TId</th>
+        <th>Name</th>
+        <!-- <th>Duration</th> -->
+        <th>Status</th>
+        <th>Progress</th>
+        <th>Rating</th>
+        <th>Com Fee</th>
+        <th>MId</th>
+        <th>SId</th>
+        <th>UId</th>
+        <th>Start Date</th>
+        <th>End Date</th>
+        </tr>
+        </thead>
+        <tbody *ngFor="let u of list3">
+        <tr>
+        <td>{{u.tId}}</td>
+        <td>{{u.tName}}</td>
+        <!-- <td>{{u.timeDuration}}</td> -->
+        <td>{{u.status}}</td>
+        <td>{{u.progress}}</td>
+        <td>{{u.rating}}</td>
+        <td>{{u.commissionFee}}</td>
+        <td>{{u.mid}}</td>
+        <td>{{u.sId}}</td>
+        <td>{{u.uid}}</td>
+        <td>{{u.startDate}}</td>
+        <td>{{u.endTime}}</td>
+        </tr>
+        </tbody>
+        </table>
+        </div>

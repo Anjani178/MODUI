@@ -40,7 +40,7 @@
     border-bottom: 1px solid #e5e5e5;
   }
   .s01 form {
-    width: 100%;
+    width: 86%;
     max-width: 1290px;
   }
   .s01 form .inner-form {
@@ -99,7 +99,7 @@
     margin: 0;
   }
   .s01 form .inner-form .input-field.second-wrap {
-    width: 16.77%;
+    width: 35.77%;
   min-width: 158px;
   color:grey;
   }
@@ -143,7 +143,7 @@
   .s01 form .inner-form .input-field.third-wrap .btn-search {
     height: 100%;
     width: 100%;
-    background: #4272d7;
+    background: #53abec;
     white-space: nowrap;
     border-radius: .5px;
     font-size: 20px;
@@ -169,6 +169,5 @@
   }
   .input-field.second-wrap::placeholder { /* Chrome, Firefox, Opera,
   Safari 10.1+ */
-    color:grey;
-    opacity: 1; /* Firefox */
-  }
+   color:grey;
+    opacity: 1;}

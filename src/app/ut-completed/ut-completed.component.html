@@ -1,0 +1,34 @@
+<div class="container" class="container" style="left: 140px; top: 60px;">
+    <table>
+    <thead>
+    <tr>
+    <th>Name</th>
+    <!-- <th>Duration</th> -->
+    <th>Status</th>
+    <th>Progress</th>
+    <th>Rating</th>
+    <!-- <th>MId</th>
+    <th>SId</th>
+    <th>UId</th> -->
+    <th>Start Date</th>
+    <th>End Date</th>
+    <th>Actions</th>
+    </tr>
+    </thead>
+    <tbody *ngFor="let u of list3">
+    <tr>
+    <td>{{u.tName}}</td>
+    <!-- <td>{{u.timeDuration}}</td> -->
+    <td>{{u.status}}</td>
+    <td>{{u.progress}}</td>
+    <td>{{u.rating}}</td>
+    <!-- <td>{{u.mid}}</td>
+    <td>{{u.sid}}</td>
+    <td>{{u.uid}}</td> --> 
+    <td>{{u.startDate}}</td>
+    <td>{{u.endTime}}</td>
+    <td><button (click)="Rating(u.tId)">Add<span class="fa fa-star"></span></button></td>
+    </tr>
+    </tbody>
+    </table>
+    </div>

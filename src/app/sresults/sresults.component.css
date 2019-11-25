@@ -1,0 +1,13 @@
+.row{
+    position: relative;
+    left: 25px;
+    margin-top: 0px;
+}
+.btn{
+    background: #53abec;
+    border-radius: 0px
+}
+.list-descrip{
+    
+    font-size: 14px;
+}

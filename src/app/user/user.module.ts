@@ -4,6 +4,8 @@ import { UserSignUpComponent } from './user-sign-up/user-sign-up.component';
 import { RouterModule } from '@angular/router';
 import { UserDashComponent } from '../user-dash/user-dash.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import {UtCompletedComponent} from '../ut-completed/ut-completed.component';
+import {UtCurrentComponent} from '../ut-current/ut-current.component'
 
 
 
@@ -12,7 +14,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
   imports: [
     CommonModule,FormsModule,
     ReactiveFormsModule,RouterModule.forChild([{
-      path:'userD',component:UserDashComponent
+      path:'userD',component:UserDashComponent, children:[
+        {path:'utCurrent',component:UtCurrentComponent},   
+      ]
     }])
   ]
 })

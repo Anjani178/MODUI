@@ -1,41 +1,62 @@
 <div class="w3layouts-two-grids">
     <div class="mid-class">
         <div class="txt-left-side">
-            <h2> Sign Up </h2>
-            <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
-                    <div class="form-left-to-w3l" data-validate="Username is reauired">
+            <h2 style="font-weight: 600"> Sign Up </h2>
+            <!-- <form [formGroup]="registerForm" (ngSubmit)="onSubmit()" style="position: relative;top:20px"> -->
+            <form style="position: relative;top:20px" [formGroup]="usignUp" (ngSubmit)="onSubmit()">        
+                <div class="form-left-to-w3l" data-validate="Username is reauired">
                             <span class="fa fa-envelope-o" aria-hidden="true"></span>
-                            <input type="email" formControlName="email" placeholder="Username" [(ngModel)]="email" [ngClass]="{ 'is-invalid': submitted && f.email.errors }">
+                            <input type="email" name="uEmail" formControlName="uEmail" placeholder="Email" [(ngModel)]="item.uEmail" [ngClass]="{ 'is-invalid': submitted && f.uEmail.errors }">
                     <div class="clear"></div>
                     </div>
-                    <div *ngIf="submitted && f.email.errors" class="invalid-feedback" style="position: relative;top: -21px;right:210px;color: red;font-size: 11px;">
-                        <div *ngIf="f.email.errors.required">Email is required</div>
-                        <div *ngIf="f.email.errors.email" style="position: relative;left:45px">Email must be a valid email address</div>
+                    <div *ngIf="submitted && f.uEmail.errors" class="invalid-feedback" style="position: relative;top:-20px;right:93px;color: red;font-size: 11px;width: 304px;">
+                            <div *ngIf="f.uEmail.errors.required">Email is required</div>
+                            <div *ngIf="f.uEmail.errors.email">Enter valid email</div>
+                        </div>
+                    <!-- <div class="form-left-to-w3l" >
+                            <span class="fa fa-user" aria-hidden="true"></span>
+                        <input type="email" name="username" placeholder="UserName" required="" [(ngModel)]="item.username" [ngClass]="{ 'is-invalid': submitted && f.username.errors }">
+                        <div class="clear"></div>
                     </div>
-                
+                        <div *ngIf="submitted && f.username.errors" class="invalid-feedback" style="position: relative;top: -20px;right:90px;color: red;font-size: 11px;width: 304px;">
+                            <div *ngIf="f.username.errors.required">Username is required</div>
+                        </div> -->
+                    <div class="form-left-to-w3l" >
+                            <span class="fa fa-book" aria-hidden="true"></span>
+                        <input type="text" name="contact" formControlName="contact" placeholder="Contact" required="" [(ngModel)]="item.contact" [ngClass]="{ 'is-invalid': submitted && f.contact.errors }" style="background: transparent;
+                        border: transparent;
+                        width: 353px;
+                        font-size: 14px;color: white;">
+                        <div class="clear"></div>
+                    </div>
+                        <div *ngIf="submitted && f.contact.errors" class="invalid-feedback" style="position: relative;top: -20px;right:90px;color: red;font-size: 11px;width: 304px;">
+                            <div *ngIf="f.contact.errors.required">Contact is required</div>
+                            <div *ngIf="f.contact.errors.maxlength">Max length should be 10 digits</div>
+
+                        </div>
                 <div class="form-left-to-w3l" data-validate="Password is required" >
                         <span class="fa fa-lock" aria-hidden="true"></span>
-                    <input type="password" formControlName="password" placeholder="Password" required="" [(ngModel)]="password" [ngClass]="{ 'is-invalid': submitted && f.password.errors }">
+                    <input type="password" name="uPassword" formControlName="uPassword" placeholder="Password" required="" [(ngModel)]="item.uPassword" [ngClass]="{ 'is-invalid': submitted && f.uPassword.errors }">
                     <div class="clear"></div>
                 </div>
-                    <div *ngIf="submitted && f.password.errors" class="invalid-feedback" style="position: relative;top: -20px;right:90px;color: red;font-size: 11px;width: 304px;">
-                        <div *ngIf="f.password.errors.required">Password is required</div>
-                        <div *ngIf="f.password.errors.minlength" style="position: relative;left:40px">Password must be at least 6 characters</div>
+                    <div *ngIf="submitted && f.uPassword.errors" class="invalid-feedback" style="position: relative;top: -20px;right:90px;color: red;font-size: 11px;width: 304px;">
+                        <div *ngIf="f.uPassword.errors.required">Password is required</div>
+                        <div *ngIf="f.uPassword.errors.minlength" style="position: relative;left:40px">Password must be at least 5 characters</div>
                     </div>
                 <div class="form-left-to-w3l">
                     <span class="fa fa-lock" aria-hidden="true"></span>
-                    <input type="password" formControlName="cpassword" placeholder="Confirm Password"  [ngClass]="{ 'is-invalid': submitted && f.cpassword.errors }">
+                    <input type="password"  name="cPassword" formControlName="cPassword" placeholder="Confirm Password" [(ngModel)]="cPassword" [ngClass]="{ 'is-invalid': submitted && f.cPassword.errors }">
                 <div class="clear"></div>
             </div>
-                <div *ngIf="submitted && f.cpassword.errors" class="invalid-feedback" style="position: relative;top: -20px;right:90px;color: red;font-size: 11px;width: 304px;">
-                <div *ngIf="f.cpassword.errors.required">Password is required</div>
-                <div *ngIf="f.cpassword.errors.mustMatch">Passwords must match</div>
+                <div *ngIf="submitted && f.cPassword.errors" class="invalid-feedback" style="position: relative;top: -20px;right:90px;color: red;font-size: 11px;width: 304px;">
+                <div *ngIf="f.cPassword.errors.required">Password is required</div>
+                <div *ngIf="f.cPassword.errors.mustMatch">Passwords must match</div>
                 </div>
-                <div class="btnn">
+                <div class="btnn" style="position: relative;bottom:20px;">
                     <button type="submit">Sign Up </button>
                 </div>
             </form>
-            <div class="w3layouts_more-buttn">
+            <div class="w3layouts_more-buttn" style="position: relative;bottom:25px">
                     <h3>Have an account..?<a routerLink="../../login">Login Here</a></h3>
                 </div>
         </div>
@@ -46,7 +67,6 @@
             <p>Attitude is more important than the past, than education, than money, than circumstances, than what people do or say. It is more important than appearance, giftedness, or skill!!</p>
             <img src="../../../assets/images/sideImage1.jpg" class="img-fluid" alt="">
         </div>
-        
     </div>
 </div>
 <!--https://jasonwatmore.com/post/2018/11/07/angular-7-reactive-forms-validation-example

@@ -3,23 +3,28 @@
         <div class="mid-class">
             <div class="txt-left-side">
                 <h2> Login </h2>
-                <form [formGroup]="loginForm" (ngSubmit)="log1()">
+                <form [formGroup]="loginForm" (ngSubmit)="Login()">
                         <div class="form-left-to-w3l">
                                 <span class="fa fa-envelope-o" aria-hidden="true"></span>
-                                <input type="email" formControlName="email" placeholder="Username" required="" [(ngModel)]="email">
+                                <input style="border: transparent;
+                                background: transparent;
+                                font-size: 14px;
+                                position: relative;
+                                left: 7px;color: white;" type="text" name="id"formControlName="id" placeholder="User ID" required="" [(ngModel)]="id">
                         <div class="clear"></div>
                         </div>
                     
                     <div class="form-left-to-w3l">
                             <span class="fa fa-lock" aria-hidden="true"></span>
-                        <input type="password" formControlName="password" placeholder="Password" required="" [(ngModel)]="password">
+                        <input type="password" name="password" formControlName="password" placeholder="Password" required="" [(ngModel)]="password">
                         <div class="clear"></div>
                     </div>
     
                     <div class="main-two-w3ls">
                             <div class="left-side-forget">
                                     <input type="checkbox" class="checked">
-                                    <span class="remenber-me">Remember me </span>
+                                    <span style ="position: relative;
+                                    top: 3px;"class="remenber-me">Remember me </span>
                             </div>
                         <div class="right-side-forget">
                             <a href="#" class="for" style="color: #53abec">Forgot password...?</a>
@@ -29,7 +34,8 @@
                         <button type="submit">Login </button>
                     </div>
                 </form>
-                <div class="w3layouts_more-buttn">
+                <div class="w3layouts_more-buttn" style="    position: relative;
+                bottom: 20px;">
                         <h3>Don't Have an account..?
                             <a routerLink='../signUp'>Register Here
                             </a>  

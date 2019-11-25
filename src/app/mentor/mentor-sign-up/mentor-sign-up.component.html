@@ -1,24 +1,25 @@
 <div class="w3layouts-two-grids">
         <div class="mid-class">
-            <div class="txt-left-side" style="height: 685px;position: relative;
-            left: 290px;">
-                <h2> Sign Up </h2>
-                <form [formGroup]="registerForm1" (ngSubmit)="onSubmit()">
-                        <div class="form-left-to-w3l" data-validate="Username">
+            <div class="txt-left-side" style="height: 564px;position: relative;
+            left: 293px;">
+                <h2 style="font-weight: 600"> Sign Up </h2>
+                <form [formGroup]="MregForm" (ngSubmit)="onSubmit()" style="position: relative; top: 8px;    padding-right: 15px;color: white;">
+                        <div class="form-left-to-w3l" data-validate="Username"style="float: left;position: relative;">
                                 <span class="fa fa-envelope-o" aria-hidden="true"></span>
-                                <input type="email" name="email" placeholder="Username" required="" [(ngModel)]= "email" [ngClass]="{ 'is-invalid': submitted && f.email.errors }">
+                                <input type="email" name="mEmail" formControlName="mEmail" placeholder="Email" required="" [(ngModel)]= "item.mEmail" [ngClass]="{ 'is-invali': submitted && f.mEmail.errors }">
                                 <div class="clear"></div>
+                                <div *ngIf="submitted && f.mEmail.errors" class="invali-feedback" style="position: relative;top:42px;right:218px;color: red;font-size: 11px;">
+                                    <div *ngIf="f.mEmail.errors.required" style="width:100px">Email is required</div>
+                                    <div *ngIf="f.mEmail.errors.email" style="position: relative;
+                                    left: 80px;
+                                    width: 181px;">Email must be a valid email address</div>
                                 </div>
-                                <div *ngIf="submitted && f.email.errors" class="invalid-feedback" style="position: relative;top: -21px;right:210px;color: red;font-size: 11px;">
-                                    <div *ngIf="f.email.errors.required">Email is required</div>
-                                    <div *ngIf="f.email.errors.email" style="position: relative;left:45px">Email must be a valid email address</div>
                                 </div>
-                        <div class="form-left-to-w3l" style="position: relative;
-                        bottom: 62px;
-                        left: 320px;
+                                
+                        <div class="form-left-to-w3l" style=" float: left; position: relative; left:20px;
                         height: 40px">
                                 <span class="fa fa-graduation-cap" aria-hidden="true"></span>
-                                    <input class ="ai" list="hosting-plan" type="text" formControlName="technologies" placeholder="Technologies" [(ngModel)]="technologies" style="    width: 300px;"[ngClass]="{ 'is-invalid': submitted && f.technologies.errors }">
+                                    <input class ="ai" list="hosting-plan" name="technologies" type="text" formControlName="technologies" placeholder="Technologies" [(ngModel)]="item.technologies" style="    width: 300px;color: white;"[ngClass]="{ 'is-invali': submitted && f.technologies.errors }">
                                     <datalist id="hosting-plan">
                                         <option value="Java"></option>
                                         <option value="C"></option>
@@ -29,88 +30,106 @@
                                         <option value="HTML"></option>
                                         <option value="CSS"></option>
                                     </datalist>
+                                    <div *ngIf="submitted && f.technologies.errors" class="invali-feedback" style="float: right;position: relative;right: 280px;top: 41px; color: red;font-size: 11px;">
+                                        <div *ngIf="f.technologies.errors.required" style="width:300px">Technologies is required</div>
                                     </div>
-                                    <div *ngIf="submitted && f.technologies.errors" class="invalid-feedback" style="position: relative;top: -21px;right:210px;color: red;font-size: 11px;">
-                                        <div *ngIf="f.technologies.errors.required">Technologies is required</div>
                                     </div>
-                        <div class="form-left-to-w3l" style="position: relative;
-                        bottom: 40px;"> 
-                            <span class="fa fa-tasks" aria-hidden="true"></span>
-                                <input class="ai"list="faci" type="text" formControlName="facilities" placeholder="Facilities"style="    width: 300px;"[(ngModel)]="facilities" [ngClass]="{ 'is-invalid': submitted && f.facilities.errors }">
+                                    
+                        <div class="form-left-to-w3l" style="float: left;position: relative; top: 15px;"> 
+                                <span class="fa fa-user" aria-hidden="true"></span>
+                                <input class="ai" type="text" name="mUserName" formControlName="mUserName" placeholder="UserName"style="    width: 300px;color: white;"[(ngModel)]="item.mUserName" [ngClass]="{ 'is-invali': submitted && f.mUserName.errors }">
+                                    <div *ngIf="submitted && f. mUserName.errors" class="invali-feedback" style="position: relative;top:38px;right:279px;color: red;font-size: 11px;">
+                                        <div *ngIf="f. mUserName.errors.required "style="width:300px">Username is required</div>
+                                    </div>
+                        </div>
+                        
+                        <div class="form-left-to-w3l" style="float: left; position: relative; left:20px;top: 15px;">
+                            <span class="fa fa-hourglass-2" aria-hidden="true"></span>
+                                <input class="ai" type="number" name="yearOfExperience" formControlName="yearOfExperience" placeholder="yearOfyearOfExperience" style="    width: 300px; color: white;" [(ngModel)]="item.yearOfExperience" [ngClass]="{ 'is-invali': submitted && f.yearOfExperience.errors }">
+                                <div *ngIf="submitted && f.yearOfExperience.errors" class="invali-feedback" style="color: red;font-size: 11px; position: relative;
+                                right: 278px;
+                                top: 37px;">
+                                    <div *ngIf="f.yearOfExperience.errors.required" style="width:300px">yearOfExperience is required</div>
+                                </div>
+                            </div>
+                        
+                        <div id="A"class="form-left-to-w3l" style="float: left;position: relative; top: 26px;">
+                            <span class="fa fa-lock" aria-hidden="true"></span>
+                                        <input class="ai" class="input100" type="password" style="color: gray;width:300px;" formControlName="mPassword" name="mPassword" placeholder="Password"[(ngModel)]="item.mPassword" [ngClass]="{ 'is-invali': submitted && f.mPassword.errors }" style="position: relative;right:10px;color: white;">
+                                        <div *ngIf="submitted && f.mPassword.errors" class="invali-feedback" style=" position: relative;top:38px;right:185px;color: red;font-size: 11px;width: 304px;">
+                                            <div *ngIf="f.mPassword.errors.required">Password is required</div>
+                                            <div *ngIf="f.mPassword.errors.m" style="position: relative;left:40px">Password must be at least 5 characters</div>
+                                        </div>
+                        </div>
+                        
+                        <div id="A"class="form-left-to-w3l" style="float: left; position: relative; left:20px;top: 26px;">
+                            <span class="fa fa-lock" aria-hidden="true"></span>
+                                            <input class="ai" class="input100" name="re_password" type="password" formControlName="re_password" placeholder="Confirm Password" required [(ngModel)]="re_password" [ngClass]="{ 'is-invali': submitted && f.re_password.errors }" style="position: relative;right:10px;color: white;">
+                                            <div *ngIf="submitted && f.re_password.errors" class="invali-feedback" style="position: relative;top:38px;right:180px;color: red;font-size: 11px;width: 304px;">
+                                                <div *ngIf="f.re_password.errors.required">Password is required</div>
+                                                <div *ngIf="f.re_password.errors.mustMatch">Passwords must match</div>
+                                </div>
+                        </div>
+                        
+                        <br>
+                        <div class="form-left-to-w3l" style="float: left;position: relative;top: 39px;" >
+                            <span class="fa fa-tag" aria-hidden="true"></span>
+                            <input class="ai"  name="linkedinUrl" type=" linkedinUrl" formControlName="linkedinUrl" placeholder="LinkedIn"style="color: gray;width:300px; color: white;" [(ngModel)]="item.linkedinUrl" [ngClass]="{ 'is-invali': submitted && f.linkedinUrl.errors }">
+                            <div *ngIf="submitted && f.linkedinUrl.errors" class="invali-feedback" style="position: relative;top:35px;right:296px; color: red;font-size: 11px;">
+                                <div *ngIf="f. linkedinUrl.errors.required" style="width:300px">Url is required</div>
+                            </div>
+                        </div>
+                        
+                            <div class="form-left-to-w3l" style="float: left; position: relative; left:20px;top: 39px;" >
+                                    <span class="fa fa-id-card-o" aria-hidden="true"></span>
+                                        <input class="ai" type="text" name="contact" formControlName="contact" style="color: gray;width:312px;color: white;" placeholder="Contact" [(ngModel)]="item.contact" [ngClass]="{ 'is-invali': submitted && f.contact.errors }" >
+                                        <div *ngIf="submitted && f.contact.errors" class="invali-feedback" style=" position: relative;top:36px;right:287px; color: red;font-size: 11px;">
+                                            <div *ngIf="f.contact.errors.required"style="width:300px">Contact is required</div>
+                                        </div>
+                                    </div>
+                                    
+                            <div class="form-left-to-w3l" data-validate="Password is required" style="float: left;position:relative;top: 52px;"  >
+                                <span class="fa fa-clock-o" aria-hidden="true"></span>
+                                <input class="ai"list="appt" type="text" name="timeSlot" formControlName="timeSlot" placeholder="Time Slot"style="    width: 300px;color: white;"[(ngModel)]="item.timeSlot" [ngClass]="{ 'is-invali': submitted && f.timeSlot.errors }">
+                                    <datalist id="appt">
+                                        <option value="09:00 am to 11:00 am"></option>
+                                        <option value="11:00 am to 01:00 pm"></option>
+                                        <option value="02:00 pm to 04:00 pm"></option>
+                                        <option value="04:00 pm to 06:00 pm"></option>
+                                        <option value="07:00 pm to 09:00 pm"></option>
+                                        <option value="10:00 pm to 12:00 am"></option>
+                                    </datalist>
+                                <div *ngIf="submitted && f.timeSlot.errors" class="invali-feedback" style="color: red;font-size: 11px; position: relative; top: 37px;
+                                right: 280px;">
+                                    <div *ngIf="f.timeSlot.errors.required" style="width:300px">timeSLot is required</div>
+                                </div>
+                                    </div>
+                                    
+                                    <div class="form-left-to-w3l" style="float: left; position: relative; left:20px;top: 52px;" >
+                                            <span class="fa fa-tasks" aria-hidden="true"></span>
+                                <input class="ai"list="faci" type="text" formControlName="facilities" placeholder="Facilities"style="    width: 300px;color: white;"[(ngModel)]="item.facilities" [ngClass]="{ 'is-invali': submitted && f.facilities.errors }">
                                     <datalist id="faci">
                                         <option value="Cloud Labs"></option>
                                         <option value="Materials"></option>
                                         <option value="Examples"></option>
                                     </datalist>
-                        </div>
-                        <div *ngIf="submitted && f.facilities.errors" class="invalid-feedback" style="position: relative;top: -21px;right:210px;color: red;font-size: 11px;">
-                            <div *ngIf="f.facilities.errors.required">facilities is required</div>
-                        </div>
-                        <div class="form-left-to-w3l" style="position: relative;bottom: 99px;left: 320px;">
-                            <span class="fa fa-hourglass-2" aria-hidden="true"></span>
-                                <input class="ai" type="number" formControlName="experience" placeholder="Experience" style="    width: 300px; color:gray;" [(ngModel)]="experience" [ngClass]="{ 'is-invalid': submitted && f.experience.errors }">
-                        </div>
-                        <div *ngIf="submitted && f.experience.errors" class="invalid-feedback" style="position: relative;top: -21px;right:210px;color: red;font-size: 11px;">
-                            <div *ngIf="f.experience.errors.required">experience is required</div>
-                        </div>
-                        <div id="A"class="form-left-to-w3l" style="position: relative;bottom: 74px;">
-                            <label for="appt" style="color: gray;font-size:12px;font-family: 'Open Sans', sans-serif; position: relative; top:5px; left:10px;  ">From:</label>
-                            <input class="ai" type="time" id="appt" formControlName="timeStart" min="09:00" max="18:00" required style="color: gray;width:260px; position: relative; left:15px;" [(ngModel)]="timeStart" [ngClass]="{ 'is-invalid': submitted && f.timeStart.errors }">
-                        </div>
-                        <div *ngIf="submitted && f.timeStart.errors" class="invalid-feedback" style="position: relative;top: -21px;right:210px;color: red;font-size: 11px;">
-                            <div *ngIf="f.timeStart.errors.required">timeStart is required</div>
-                        </div>
-                        <div id="A"class="form-left-to-w3l" style="position: relative; bottom: 125px; left: 320px;">
-                            <label for="appt1" style="color: gray;font-size:12px;font-family: 'Open Sans', sans-serif; position: relative; top:5px; left:10px;" >To:</label>
-                            <input class="ai" type="time" id="appt1" formControlName="timeEnd" min="09:00" max="18:00" required style="color: gray;width:275px; position: relative; left:15px;"[(ngModel)]="timeEnd" [ngClass]="{ 'is-invalid': submitted && f.timeEnd.errors }">
-                        </div>
-                        <div *ngIf="submitted && f.timeEnd.errors" class="invalid-feedback" style="position: relative;top: -21px;right:210px;color: red;font-size: 11px;">
-                            <div *ngIf="f.timeEnd.errors.required">timeEnd is required</div>
-                        </div>
-                        <br>
-                        <div class="form-left-to-w3l" style="position: relative;bottom: 112px" >
-                            <span class="fa fa-tag" aria-hidden="true"></span>
-                            <input class="ai"  type="url" formControlName="url" placeholder="LinkedIn Url" [(ngModel)]="url" [ngClass]="{ 'is-invalid': submitted && f.url.errors }">
-                        </div>
-                        <div *ngIf="submitted && f.url.errors" class="invalid-feedback" style="position: relative;top: -21px;right:210px;color: red;font-size: 11px;">
-                            <div *ngIf="f.url.errors.required">Url is required</div>
-                        </div>
-                            <div class="form-left-to-w3l" style="position: relative;bottom: 172px;left: 320px;" >
-                                    <span class="fa fa-id-card-o" aria-hidden="true"></span>
-                                        <input class="ai" type="text" formControlName="number" placeholder="Email/Contact Number" [(ngModel)]="number" [ngClass]="{ 'is-invalid': submitted && f.number.errors }" >
+                                    <div *ngIf="submitted && f.facilities.errors" class="invali-feedback" style="position: relative;top:38px;right:286px;color: red;font-size: 11px;">
+                                        <div *ngIf="f.facilities.errors.required "style="width:300px">Facilities is required</div>
                                     </div>
-                                    <div *ngIf="submitted && f.number.errors" class="invalid-feedback" style="position: relative;top: -21px;right:210px;color: red;font-size: 11px;">
-                                        <div *ngIf="f.number.errors.required">Technologies is required</div>
-                                    </div>
-                            <div class="form-left-to-w3l" data-validate="Password is required" style="position: relative;
-                            bottom: 140px;"  >
-                                    <span class="fa fa-lock" aria-hidden="true"></span>
-                                        <input class="ai" class="input100" type="password" formControlName="password" placeholder="Password"[(ngModel)]="password" [ngClass]="{ 'is-invalid': submitted && f.password.errors }">
-                                    </div>
-                                    <div *ngIf="submitted && f.password.errors" class="invalid-feedback" style="position: relative;top: -20px;right:90px;color: red;font-size: 11px;width: 304px;">
-                                        <div *ngIf="f.password.errors.required">Password is required</div>
-                                        <div *ngIf="f.password.errors.mustMatch">Passwords must match</div>
-                                    </div>
-                            <div class="form-left-to-w3l" data-validate="Confirm Password" style="position: relative;bottom: 201px;left: 320px;"[(ngModel)]="cpassword" [ngClass]="{ 'is-invalid': submitted && f.cpassword.errors }" >
-                                            <span class="fa fa-lock" aria-hidden="true"></span>
-                                            <input class="ai" class="input100" type="password" formControlName="ConfirmPassword" placeholder="Confirm Password" required>
-                                        </div>
-                            <div *ngIf="submitted && f.cpassword.errors" class="invalid-feedback" style="position: relative;top: -20px;right:90px;color: red;font-size: 11px;width: 304px;">
-                                            <div *ngIf="f.cpassword.errors.required">Password is required</div>
-                                            <div *ngIf="f.cpassword.errors.mustMatch">Passwords must match</div>
-                            </div>
-                    <div class="btnn" style="    position: relative; bottom: 192px;">
-                        <button type="submit"(click)="sub1()">Sign Up</button>
+                                    </div>    
+                            
+                    <div class="btn" style="position:relative; top: 30px;
+                    left: 0px; max-width: 100px;">
+                        <button type="submit">Sign Up</button>
                     </div>
                 </form>
-                <div class="w3layouts_more-buttn" style="    position: relative;bottom: 230px;">
+                <div class="w3layouts_more-buttn" style="position: relative;bottom: 0px;">
                         <h3>Have an account..?
                             <a routerLink="../../login">Login Here
                             </a>
                         </h3>
                     </div>
             </div>
-            
         </div>
     </div>
     

@@ -2,16 +2,29 @@
     <form>
     <div class="inner-form">
     <div class="input-field first-wrap">
-    <input id="search" type="text" placeholder="What are you looking for?">
-    </div>
+    <input list="hel" type="text" placeholder="What are you looking for?" [(ngModel)]="technologies" name="technologies">
+    <datalist id="hel">
+        <option value="C"></option>
+        <option value="C++"></option>
+        <option value="Html"></option>
+        <option value="Java"></option>
+        <option value="Python"></option>
+        <option value="R"></option>
+    </datalist>
+</div>
     <div class="input-field second-wrap">
-    <input id="location" type="date" placeholder="location">
-    </div>
-    <div class="input-field second-wrap">
-        <input id="location1" type="date" placeholder="location">
+    <input list="appt1" type="text" placeholder="Time Slot" [(ngModel)]="timeSlot" name="timeSlot">
+    <datalist id="appt1">
+        <option value="09:00 am to 11:00 am"></option>
+        <option value="11:00 am to 01:00 pm"></option>
+        <option value="02:00 pm to 04:00 pm"></option>
+        <option value="04:00 pm to 06:00 pm"></option>
+        <option value="07:00 pm to 09:00 pm"></option>
+        <option value="10:00 pm to 12:00 am"></option>
+    </datalist>
     </div>
     <div class="input-field third-wrap">
-    <button class="btn-search" type="button">Search</button>
+    <button class="btn-search" type=button (click)="searchNow()">Search</button>
     </div>
     </div>
     </form>
